@@ -10,11 +10,10 @@ import com.wegmeth.video.gui.Videoplayer;
 public class Main {
 	public static void main(String args[]) {
 		VideoController vc;
-		if (args.length > 0 && args[0] != null)
-			vc = new VideoController(new Videoplayer(), args[0]);
-		else if (args.length > 1 && args[0] != null && args[1] != null
-				&& new File(args[1]).exists())
+		if (args.length > 1 && args[0] != null && args[1] != null) {
 			vc = new VideoController(new Videoplayer(), args[1], args[0]);
+		} else if (args.length > 0 && args[0] != null)
+			vc = new VideoController(new Videoplayer(), args[0]);
 		else
 			vc = new VideoController(new Videoplayer());
 		vc.open();

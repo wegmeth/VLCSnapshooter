@@ -56,13 +56,14 @@ public class VideoController {
 				else
 					img = createQR(player.getQRURL());
 
-				if(!outputFile.exists()) outputFile.mkdirs();
-				File out = new File(outputFile, System.currentTimeMillis()+ ".jpg");
+				if(!outputFile.getParentFile().exists()) outputFile.getParentFile().mkdirs();
+				File out = (outputFile);
 				try {
 					ImageIO.write((RenderedImage) img, "JPEG", out);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				System.exit(0);
 			}
 		});
 		
